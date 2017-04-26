@@ -1,6 +1,6 @@
 # CubeWord
 A python script which prints even-length words as cubes.
-
+```
     CubeWord  
    /u     /r  
   / b    / o  
@@ -13,3 +13,4 @@ W  /   e  /
 o /    b /  
 r/     u/  
 droWebuC  
+```
