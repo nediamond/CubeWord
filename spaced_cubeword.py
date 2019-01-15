@@ -2,8 +2,6 @@
  
 # Cubifies words.
 
-# Todo: turn this into an aws(or other service) api?
-
 def cubify(usr_str):
 	spaced_str = reduce(lambda x,y: x+" "+y, usr_str, "").strip()
 	odd = len(usr_str)%2
