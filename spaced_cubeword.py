@@ -1,6 +1,6 @@
 #!/usr/bin/env python
  
-# Cubifies words.  Currently only works with strings of even length.
+# Cubifies words.
 
 # Todo: turn this into an aws(or other service) api?
 
