@@ -6,11 +6,7 @@
 
 def cubify(usr_str):
 	spaced_str = reduce(lambda x,y: x+" "+y, usr_str, "").strip()
-
-	# if len(usr_str) % 2 != 0:
-	#         print "Sorry, this only works with strings of even length."
-	#         quit()
-
+	odd = len(usr_str)%2
 	mid = len(usr_str)/2
 	ret_str = ("  "*(mid))+spaced_str+"\n"
 
@@ -28,9 +24,9 @@ def cubify(usr_str):
 		
 	ret_str += spaced_str
 	ret_str += " " * (2*(mid)-1)
-	ret_str += usr_str[mid-1] + "\n"
+	ret_str += usr_str[mid-((len(usr_str)+1)%2)] + "\n"
 
-	for i in range(1, mid-1):
+	for i in range(1, mid-1+odd):
 		ret_str += usr_str[i]
 		ret_str += " " * (2*(mid-1)+1)
 		ret_str += usr_str[mid+i]
@@ -41,18 +37,19 @@ def cubify(usr_str):
 		
 		ret_str+="\n"
 		
-	ret_str += usr_str[mid-1]
+	ret_str += usr_str[mid-1+odd]
 	ret_str += " " * (2*(mid-1)+1)
 	ret_str += spaced_str[::-1] + "\n"
 
 
-	for i in range(0, len(usr_str)-mid-1):
-		ret_str += usr_str[mid+i]
-		ret_str += "  " * ((mid-i-2) + (len(usr_str)%2))
+	for i in range(0, len(usr_str)-mid-1-odd):
+		ret_str += usr_str[mid+i+odd]
+		ret_str += "  " * ((mid-i-2))
 		ret_str += " /"
-		ret_str += " " * (2*(mid+i-1)+1)
-		ret_str += usr_str[-mid-i-1]
-		ret_str += "  " * ((mid-i-2) + (len(usr_str)%2))
+		ret_str += " " * (2*(mid+i-1)+1+odd)
+		if odd: ret_str += " "
+		ret_str += usr_str[-mid-i-1-odd]
+		ret_str += "  " * ((mid-i-2)+odd)
 		ret_str += " /"
 		
 		ret_str += "\n"
